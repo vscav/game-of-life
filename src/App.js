@@ -5,6 +5,11 @@ import "./App.css";
 const numRows = 20;
 const numCols = 20;
 
+/**
+ * Generate an empty or a random grid.
+ * @param {boolean} empty A boolean to tell if the grid needs to be empty or not
+ * @returns The generated grid
+ */
 const generateGrid = (empty = true) => {
   const rows = [];
   for (let i = 0; i < numRows; i++) {
@@ -18,6 +23,13 @@ const generateGrid = (empty = true) => {
   return rows;
 };
 
+/**
+ * Get the states of the surrounding cells of a given cell.
+ * @param {number} x The x coordinate
+ * @param {number} y The y coordinate
+ * @param {Array} matrix The current matrix to use
+ * @returns An object with each neighbor position and its current state
+ */
 const getSurroundingCells = (x, y, matrix) => {
   const xLimit = matrix.length;
   if (xLimit === 0) return null;
@@ -39,6 +51,11 @@ const getSurroundingCells = (x, y, matrix) => {
   };
 };
 
+/**
+ * Generate the next state of the grid, to get the new generation of cells.
+ * @param {*} currentGenerationGrid The current grid (to get the current state)
+ * @param {*} gridDraft The temporary grid to generate the new generation
+ */
 const generateNextGeneration = (currentGenerationGrid, gridDraft) => {
   for (let i = 0; i < numRows; i++) {
     for (let j = 0; j < numCols; j++) {
@@ -60,12 +77,21 @@ const generateNextGeneration = (currentGenerationGrid, gridDraft) => {
   }
 };
 
+/**
+ * React functional component.
+ * It is a JavaScript Function which has to return JSX -- React's syntax for defining
+ * a mix of HTML and JavaScript whereas the JavaScript is used with curly braces within the HTML.
+ */
 function App() {
   const [grid, setGrid] = useState(() => generateGrid());
   const [running, setRunning] = useState(false);
   const runningRef = useRef(running);
   runningRef.current = running;
 
+  /**
+   * Run the simulation by calling the above function (generateNextGeneration)
+   * to generate the next generation of cells every 120ms.
+   */
   const runSimulation = useCallback(() => {
     if (!runningRef.current) return;
 
@@ -130,7 +156,7 @@ function App() {
         }}
       >
         {grid.map((rows, i) =>
-          rows.map((cols, j) => (
+          rows.map((_, j) => (
             <div
               key={`${i}-${j}`}
               className="cell"
