@@ -80,8 +80,9 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="btn-container">
         <button
+          className="btn"
           onClick={() => {
             setRunning(!running);
             if (!running) {
@@ -93,6 +94,7 @@ function App() {
           {running ? "Stop" : "Start"}
         </button>
         <button
+          className="btn"
           onClick={() => {
             if (running) return;
             setGrid((g) => {
@@ -105,6 +107,7 @@ function App() {
           Next state
         </button>
         <button
+          className="btn"
           onClick={() => {
             setGrid(generateGrid(false));
           }}
@@ -112,6 +115,7 @@ function App() {
           Random
         </button>
         <button
+          className="btn"
           onClick={() => {
             setGrid(generateGrid());
           }}

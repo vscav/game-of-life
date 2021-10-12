@@ -15,3 +15,51 @@ body {
   justify-content: center;
 }
 
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: hsl(240, 18%, 13%);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: hsl(221, 95%, 61%);
+  border: 1px solid hsl(221, 95%, 61%);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover {
+  color: hsl(240, 25%, 98%);
+  background-color: hsl(221, 94%, 69%);
+  border-color: hsl(221, 95%, 61%);
+}
+
+.btn:active {
+  color: hsl(240, 25%, 98%);
+  background-color: hsl(221, 94%, 69%);
+  border-color: hsl(221, 95%, 61%);
+}
+
+.btn:focus {
+  color: hsl(240, 25%, 98%);
+  background-color: hsl(221, 94%, 69%);
+  border-color: hsl(221, 95%, 61%);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem hsl(221, 95%, 61%, 0.5);
+}
