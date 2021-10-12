@@ -1,0 +1,90 @@
+.world {
+  display: grid;
+  grid-gap: 0.5em;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(46, 111, 149, 0.225);
+  border-radius: 25%;
+}
+
+.body {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+}
+
+.alive {
+  background-color: rgba(46, 111, 149, 0.75);
+}
+
+.dead {
+  background-color: white;
+}
+
+.life-animation {
+  animation-name: lifeAnimation;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.death-animation {
+  animation-name: deathAnimation;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes lifeAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(160, 26, 88, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(73, 24, 54, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(92, 77, 125, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(46, 111, 149, 0.75);
+  }
+}
+
+@keyframes deathAnimation {
+  0% {
+    transform: scale(1);
+    background-color: rgba(46, 111, 149, 0.75);
+  }
+
+  50% {
+    background-color: rgba(92, 77, 125, 0.75);
+  }
+
+  75% {
+    background-color: rgba(137, 43, 100, 0.75);
+  }
+
+  100% {
+    transform: scale(0);
+    background-color: rgba(160, 26, 88, 0.75);
+    border-radius: 100%;
+  }
+}
